@@ -5,7 +5,7 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
-        package com.me.server;
+        package com.me.client;
 
 
         
@@ -133,16 +133,16 @@
                     /**
                      * Auto generated method signature
                      * 
-                     * @see com.me.server.HelloWorld#get
+                     * @see com.me.client.HelloWorld#get
                      * @param get2
                     
                      */
 
                     
 
-                            public  com.me.server.GetResponse get(
+                            public  com.me.client.GetResponse get(
 
-                            com.me.server.Get get2)
+                            com.me.client.Get get2)
                         
 
                     throws java.rmi.RemoteException
@@ -193,11 +193,11 @@
                 
                                 java.lang.Object object = fromOM(
                                              _returnEnv.getBody().getFirstElement() ,
-                                             com.me.server.GetResponse.class,
+                                             com.me.client.GetResponse.class,
                                               getEnvelopeNamespaces(_returnEnv));
 
                                
-                                        return (com.me.server.GetResponse)object;
+                                        return (com.me.client.GetResponse)object;
                                    
          }catch(org.apache.axis2.AxisFault f){
 
@@ -255,15 +255,15 @@
                 /**
                 * Auto generated method signature for Asynchronous Invocations
                 * 
-                * @see com.me.server.HelloWorld#startget
+                * @see com.me.client.HelloWorld#startget
                     * @param get2
                 
                 */
                 public  void startget(
 
-                 com.me.server.Get get2,
+                 com.me.client.Get get2,
 
-                  final com.me.server.HelloWorldCallbackHandler callback)
+                  final com.me.client.HelloWorldCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
@@ -307,10 +307,10 @@
                                 org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
                                 
                                         java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         com.me.server.GetResponse.class,
+                                                                         com.me.client.GetResponse.class,
                                                                          getEnvelopeNamespaces(resultEnv));
                                         callback.receiveResultget(
-                                        (com.me.server.GetResponse)object);
+                                        (com.me.client.GetResponse)object);
                                         
                             } catch (org.apache.axis2.AxisFault e) {
                                 callback.receiveErrorget(e);
@@ -431,12 +431,12 @@
         return false;
     }
      //http://localhost:8080/axis2/services/HelloWorld
-            private  org.apache.axiom.om.OMElement  toOM(com.me.server.Get param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.me.client.Get param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.me.server.Get.MY_QNAME,
+                             return param.getOMElement(com.me.client.Get.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -445,12 +445,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(com.me.server.GetResponse param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.me.client.GetResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.me.server.GetResponse.MY_QNAME,
+                             return param.getOMElement(com.me.client.GetResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -460,14 +460,14 @@
             }
         
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.me.server.Get param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.me.client.Get param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                                         throws org.apache.axis2.AxisFault{
 
                                              
                                                     try{
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(com.me.server.Get.MY_QNAME,factory));
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(com.me.client.Get.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -497,16 +497,16 @@
 
         try {
         
-                if (com.me.server.Get.class.equals(type)){
+                if (com.me.client.Get.class.equals(type)){
                 
-                           return com.me.server.Get.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.me.client.Get.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (com.me.server.GetResponse.class.equals(type)){
+                if (com.me.client.GetResponse.class.equals(type)){
                 
-                           return com.me.server.GetResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.me.client.GetResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

@@ -1,29 +1,71 @@
 
 /**
- * Get.java
+ * GetResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:34:40 IST)
  */
 
             
-                package com.me.server;
+                package com.me.client;
             
 
             /**
-            *  Get bean class
+            *  GetResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class Get
+        public  class GetResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://me.com",
-                "get",
+                "getResponse",
                 "ns1");
 
             
+
+                        /**
+                        * field for _return
+                        */
+
+                        
+                                    protected java.lang.String local_return ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean local_returnTracker = false ;
+
+                           public boolean is_returnSpecified(){
+                               return local_returnTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String get_return(){
+                               return local_return;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param _return
+                               */
+                               public void set_return(java.lang.String param){
+                            local_returnTracker = true;
+                                   
+                                            this.local_return=param;
+                                    
+
+                               }
+                            
 
      
      
@@ -73,17 +115,35 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://me.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":get",
+                           namespacePrefix+":getResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "get",
+                           "getResponse",
                            xmlWriter);
                    }
 
                
                    }
-               
+                if (local_returnTracker){
+                                    namespace = "http://me.com";
+                                    writeStartElement(null, namespace, "return", xmlWriter);
+                             
+
+                                          if (local_return==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(local_return);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             }
                     xmlWriter.writeEndElement();
                
 
@@ -268,7 +328,13 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                
+                 if (local_returnTracker){
+                                      elementList.add(new javax.xml.namespace.QName("http://me.com",
+                                                                      "return"));
+                                 
+                                         elementList.add(local_return==null?null:
+                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return));
+                                    }
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -293,9 +359,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static Get parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            Get object =
-                new Get();
+        public static GetResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            GetResponse object =
+                new GetResponse();
 
             int event;
             java.lang.String nillableValue = null;
@@ -319,10 +385,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"get".equals(type)){
+                            if (!"getResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Get)com.me.server.ExtensionMapper.getTypeObject(
+                                return (GetResponse)com.me.client.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -343,7 +409,35 @@
                 
                     
                     reader.next();
-                  
+                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://me.com","return").equals(reader.getName())){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.set_return(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                  
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

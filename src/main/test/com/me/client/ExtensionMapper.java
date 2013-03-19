@@ -7,7 +7,7 @@
  */
 
         
-            package com.me.server;
+            package com.me.client;
         
             /**
             *  ExtensionMapper class

@@ -6,7 +6,7 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 
-    package com.me.server;
+    package com.me.client;
 
     /**
      *  HelloWorldCallbackHandler Callback class, Users can extend this class and implement
@@ -49,7 +49,7 @@
             * override this method for handling normal response from get operation
             */
            public void receiveResultget(
-                    com.me.server.GetResponse result
+                    com.me.client.GetResponse result
                         ) {
            }
 
